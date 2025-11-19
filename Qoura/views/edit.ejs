@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Info</title>
+	<link href="/editStyle.css"rel="stylesheet">
+</head>
+<body>
+	<h1>Edit Post</h1>
+	<p>ID: <%=post.id%></p>
+	<p>username: <%=post.username%></p>
+	<form method="post" action="/posts/<%=post.id%>?_method=PATCH">
+	<textarea name="content"><%=post.content%></textarea>
+	<button>Submit</button>
+	</form>
+</body>
+</html>

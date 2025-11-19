@@ -1,0 +1,56 @@
+..........................Making Files and Folders.................................
+
+1st of all make a Folder named Qoura. now install npm init to make package.json file. then install express and ejs in it. make two folders views and public
+
+	1.public is for style.css and other files to be stored.
+	2.views acts as database from where we will be sending the index.ejs (html file) to the server.
+
+also create an app.js file in qoura folder. now open the app.js and require the express in it . set the path using 
+
+	const path=require("path");
+	app.set("views",path.join(__dirname,"views"));
+
+better add the functions for parsing the url and json files using 
+
+	app.use(express.urlencoded({extended:true}));
+	app.use(express.json);
+
+...........................Making Main Page.........................................
+
+then make a list of posts named posts in which we have username and content of each post. then send it to the ejs file using command
+
+	app.get("/posts",(req,res)=>{
+		res.render("index.ejs",{posts});
+	}
+
+go in the ejs file and aquire the username and content of post. also create a style.css file in public folder and add styling to the html code in ejs file. add the style.css to ejs by link in head and connect to app.js through commands: 
+	app.use(express.static(path.join(__dirname,"public")));
+
+...........................Making New Post Section..................................
+
+Now make another file named new.ejs in the views folder and make a html form in it with method=post and action=/posts. make an input box and a textarea along with a submit button.
+
+Go to app.js and make a get function with address /posts/new and send the response as new.ejs (it will give them that form in new.ejs)
+
+now make post function and store the username and content that was added in form and push them in the array of posts. now make function res.redirect with url to /posts. it will basically take you to main page whenever you click submit button on new post.
+
+Now go to index.html and add an anchor tag with link /posts/new. so it will take you to new post form and submit button on that page will take you back here after adding new post.
+
+..........................Showing Details of Post........................
+
+you have to make an ejs file named show and make three paragraphs as id,name and content.
+Make a get function with url posts/:id that will search the id given from the id's of post using posts.find function Go to index.html and make an anchor tag along with name and content and give it a link to posts/:<%=post.id%>. it will take you to the id of the post you are clicking on.
+now make id's. for this go to gitbash and install npm i uuid. after this, require it as const {v4:uuidv4}=require('uuid');
+now go to the posts array and add id=uuidv4(); it will add random id to post. now in get function store req.params in id. search it using posts.find and pass that to the show.ejs.
+modify the app.post a bit. add a variable id=uuidv4(); and pass the id along with content and name
+
+............................Editing Posts...............................
+
+Make an anchor tag in index.ejs and give it a link to posts/<%=post.id%>/edit. now make a get function with url posts/:id/edit and get id as req.params. then find the post through id using posts.find and parse the edit.ejs along with post to the res.render.make a file named edit.ejs and display the id and username in it. make a form and in it place a textarea with name-content and post.content (it will place already written content of post in it). create a submit button there too.
+now the problem is that you cannot make the patch method directly on the form. for this we use method override. run command npm i method-override to install it. to use it write the method=post and in action write /posts/<%post.id%>?_method=PATCH and in app.js require it as const methodOverride=require("method-override"); and place a line app.use(methodOverride("_method");it will search for _method in the ejs file.
+Now we are going to make app.patch function and receive the id and search for the particular post. now store the req.body.content in variable newContent and make post.content=newContent. Afterall redirect it to the posts.
+
+.................................Deleting Post............................
+
+for this make a form in index.ejs and inside it make a delete button. in the form method write post and in action="/posts/<%=post.id%>?_method=DELETE">. now come to app.js and make function app.delete with url /posts/"id
+get the id and search for filter where id!==p.id and store it into posts array. then redirect the page to /posts
