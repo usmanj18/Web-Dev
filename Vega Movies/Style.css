@@ -178,6 +178,7 @@ a{
     background-color:yellow;
     color:black;
     font-weight:600;
+    cursor: pointer;
 }
 .page-btn1 {
     height: 2.7rem;
@@ -188,6 +189,7 @@ a{
     font-weight: 600;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 .page-btn2 {
     height: 2.7rem;
@@ -197,6 +199,7 @@ a{
     background-color: yellow;
     color: black;
     font-weight: 600;
+    cursor: pointer;
 }
 .footer{
     background-color:#2d0000;
