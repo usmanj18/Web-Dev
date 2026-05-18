@@ -1,0 +1,147 @@
+:root {
+    --bg-dark: #111b21;       /* Deepest background */
+    --card-bg: #202c33;       /* Slightly lighter card background */
+    --card-hover: #2a3942;    /* Highlight for hovering */
+    --app-green: #00a884;
+    --text-main: #e9edef;     /* Off-white text for readability */
+    --text-muted: #8696a0;    /* Grey text for secondary info */
+    --border-subtle: rgba(134, 150, 160, 0.15);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+}
+
+/* Header Section */
+.main-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-section h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.add-btn {
+    background-color: var(--app-green);
+    color: #111b21;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.add-btn:hover {
+    background-color: #06cf9c;
+    transform: translateY(-1px);
+}
+
+/* Chat Cards - No longer white! */
+.message-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-subtle);
+    transition: background-color 0.2s;
+}
+
+.message-card:hover {
+    background-color: var(--card-hover);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: #374045;
+    color: var(--app-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    border: 1px solid var(--border-subtle);
+}
+
+.names strong {
+    color: var(--text-main);
+    display: block;
+}
+
+.names small {
+    color: var(--text-muted);
+}
+
+/* Content */
+.card-content p {
+    color: #d1d7db;
+    line-height: 1.5;
+    margin: 0 0 15px 0;
+    font-size: 1.05rem;
+}
+
+/* Footer Actions */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 12px;
+}
+
+.metadata {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.edit-icon:hover {
+    background: rgba(0, 168, 132, 0.1);
+    color: var(--app-green);
+    border-color: var(--app-green);
+}
+
+.delete-icon:hover {
+    background: rgba(234, 0, 56, 0.1);
+    color: #ff2e5b;
+    border-color: #ff2e5b;
+}

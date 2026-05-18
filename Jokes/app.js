@@ -14,11 +14,11 @@ async function getJoke() {
         if (data.type == 'single') {
             return data.joke;
         } else if (data.type == 'twopart') {
-            return `${data.setup} — ${data.delivery}`;
+            return `${data.setup} ï¿½ ${data.delivery}`;
         }
     } catch (err) {
         console.log("Error was: ", err);
-        return "No Qoute Found";
+        return "No Joke Found";
     }
     
 }

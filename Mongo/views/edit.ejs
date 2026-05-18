@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Info</title>
+    <link rel="stylesheet" href="/edit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="edit-wrapper">
+            <h3>Update Message</h3>
+            <div class="info-banner">
+                Editing: <strong><%=user.from%></strong> → <strong><%=user.to%></strong>
+            </div>
+
+            <form method="post" action="/chats/<%=user.id%>?_method=put">
+                <div class="control-group">
+                    <label>Message Content</label>
+                    <textarea name="msg" rows="10" required><%=user.msg%></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <a href="/chats" class="back-btn">Cancel</a>
+                    <button class="update-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

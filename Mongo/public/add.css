@@ -1,0 +1,91 @@
+:root {
+    --bg-dark: #111b21;
+    --card-bg: #202c33;
+    --app-green: #00a884;
+    --text-main: #e9edef;
+    --text-muted: #8696a0;
+    --input-bg: #2a3942;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+}
+
+.form-card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(134, 150, 160, 0.1);
+}
+
+.form-header h3 {
+    margin: 0;
+    color: var(--text-main);
+}
+
+.form-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 8px 0 25px 0;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--input-bg);
+    border: 1px solid rgba(134, 150, 160, 0.2);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: var(--text-main);
+    font-family: inherit;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: var(--app-green);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    background-color: var(--app-green);
+    color: var(--bg-dark);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cancel-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
